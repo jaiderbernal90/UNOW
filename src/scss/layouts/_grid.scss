@@ -1,0 +1,10 @@
+.grid__body{
+  display: grid;
+  grid-template-columns: minmax(auto, 120px) 1fr;
+}
+
+.grid__main{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(auto, 80px) 1fr;
+}
