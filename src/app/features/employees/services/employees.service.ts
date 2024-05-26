@@ -61,6 +61,6 @@ export class EmployeesService {
   }
 
   private isValidIndex(index: number): boolean {
-    return index <= this.employees.length;
+    return index <= this.employees().length;
   }
 }
