@@ -15,7 +15,7 @@ export const routes: Routes = [
     children: [
       {
         path:'inicio',
-        component: HomeComponent,
+        loadComponent: () => import('./core/components/home/home.component').then(c => c.HomeComponent),
       }
     ]
   },
