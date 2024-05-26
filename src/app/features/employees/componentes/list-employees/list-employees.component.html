@@ -1,1 +1,73 @@
-<p>list-employees works!</p>
+<app-card [classList]="['card-white', 'mb-64']">
+  <ng-container title>
+    <div class="mb-32">
+      <h2 class="title--card">List of Employees</h2>
+    </div>
+  </ng-container>
+  <ng-container body>
+    @if(!employees().length){
+    <div class="messages">
+      <p-messages [(value)]="messages" [enableService]="false" [closable]="false" />
+    </div>
+    } @else {
+    <p-table #table [value]="employees()" [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" (onPage)="pageChange($event)"
+      [paginator]="true" [rows]="5" [first]="first" [showCurrentPageReport]="true"
+      [globalFilterFields]="['name','lastName']">
+      <!-- HEADER AND INPUT SEARCH -->
+      <ng-template pTemplate="caption">
+        <div class="header__table">
+          <div class="form__group">
+            <p-iconField iconPosition="left" class="ml-auto">
+              <p-inputIcon>
+                <i class="pi pi-search"></i>
+              </p-inputIcon>
+              <input pInputText type="text" (input)="table.filterGlobal(searchValue, 'contains')"
+                placeholder="Search keyword" [(ngModel)]="searchValue" />
+            </p-iconField>
+          </div>
+        </div>
+      </ng-template>
+      <!-- HEADER TABLE -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Last name</th>
+          <th>Job Title</th>
+          <th>Date of birth</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <!-- BODY TABLE -->
+      <ng-template pTemplate="body" let-employee let-rowIndex="rowIndex">
+        <tr>
+          <td>{{ employee.name | titlecase }}</td>
+          <td>{{ employee.lastName | titlecase }}</td>
+          <td>{{ employee.jobTitle | titlecase }}</td>
+          <td>{{ employee.dateOfBirth | date:'dd/MM/YYYY' }}</td>
+          <td>
+            <div class="flex justify-content-center">
+              <p-menu #menu [model]="items" [popup]="true">
+                <ng-template pTemplate="item" let-item>
+                  <div (click)="handleClickItem(item, employee, rowIndex)" class="item-link">
+                    <i [class]="item.icon"></i>
+                    <span>{{item.label}}</span>
+                  </div>
+                </ng-template>
+              </p-menu>
+              <p-button icon="pi pi-ellipsis-v" [rounded]="true" [text]="true" (click)="menu.toggle($event)" />
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    }
+  </ng-container>
+</app-card>
+
+
+<p-toast />
+<p-confirmDialog />
+@if (_utilsSvc.visible()) {
+<app-edit-employee></app-edit-employee>
+}
