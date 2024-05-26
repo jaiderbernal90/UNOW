@@ -1,0 +1,31 @@
+<p-dialog header="Edit Employee" [modal]="false" [visible]="_utilsSvc.visible()" [style]="{ width: '32rem' }"
+  [closable]="false" class="dialog" [maximizable]="true">
+  <span class="p-text-secondary block mb-32">Update employee's information.</span>
+  <form [formGroup]="form">
+    <div class="form__group mb-24">
+      <div class="form__group">
+        <label for="jobTitle">Job title</label>
+        <p-dropdown [options]="positions()" placeholder="Select a job title" class="w-100" formControlName="jobTitle">
+          <ng-template pTemplate="selectedItem">
+            <div>{{ form.get('jobTitle')?.value | titlecase }}</div>
+          </ng-template>
+          <ng-template let-item pTemplate="item">
+            <div>{{ item | titlecase }}</div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+    <div class="form__group mb-32">
+      <label for="name" class="font-semibold w-6rem">Name</label>
+      <input pInputText id="name" class="flex-auto" autocomplete="off" formControlName="name"/>
+    </div>
+    <div class="form__group mb-32">
+      <label for="lastName" class="font-semibold w-6rem">Last name</label>
+      <input pInputText id="lastName" class="flex-auto" autocomplete="off" formControlName="lastName"/>
+    </div>
+  </form>
+  <div class="dialog__actions">
+    <p-button label="Cancel" severity="secondary" (click)="_utilsSvc.setVisible(false)" class="btn-secondary" />
+    <p-button label="Save" type="submit" (click)="onSubmit()" [disabled]="form.invalid" class="btn-primary"/>
+  </div>
+</p-dialog>
