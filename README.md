@@ -1,6 +1,6 @@
 # Unow
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8. In this solution, an application was developed using Angular to manage the employee list of the company UNOW. A cookie system was implemented for data preservation, enhancing the application's performance. An endpoint was consumed via HTTP to populate the job positions dropdown. Additionally, the corresponding employee CRUD operations were implemented following the best software development practices. Each component and service used is covered by unit tests. The application features a modern, responsive, and intuitive design that adheres to the standards outlined in the project initiation document.
 
 ## Development server
 
