@@ -44,11 +44,13 @@ export class EditEmployeeComponent implements OnInit {
   form!: FormGroup;
 
   public onSubmit() {
-    this._employeesSvc.editEmployee(
-      this.form.value,
-      this.dataEdit()?.index ?? 0
-    );
-    this._utilsSvc.setVisible(false);
+    if(this.form.valid){
+      this._employeesSvc.editEmployee(
+        this.form.value,
+        this.dataEdit()?.index ?? 0
+      );
+      this._utilsSvc.setVisible(false);
+    }
   }
 
   ngOnInit(): void {

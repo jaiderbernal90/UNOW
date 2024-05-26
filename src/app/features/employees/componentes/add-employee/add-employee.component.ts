@@ -46,11 +46,11 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   handleOnSubmit(): void {
-    this.loading = true;
-    this._employeesSvc.setEmployee(this.form.value);
-    this._employeesSvc.getEmployees();
-    this.form.reset();
-    this.loading = false;
+    if(this.form.valid){
+      this._employeesSvc.setEmployee(this.form.value);
+      this._employeesSvc.getEmployees();
+      this.form.reset();
+    }
   }
 
   private initForm(): void {

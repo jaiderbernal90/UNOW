@@ -47,9 +47,9 @@ export class EmployeesService {
     if (this.isValidIndex(index)) {
       const employee = this.employees();
       const employeeEdited = employee[index];
-      if(updatedEmployee.name) employeeEdited.name = updatedEmployee.name;
-      if(updatedEmployee.jobTitle) employeeEdited.jobTitle = updatedEmployee.jobTitle;
-      if(updatedEmployee.lastName) employeeEdited.lastName = updatedEmployee.lastName;
+      if(updatedEmployee?.name) employeeEdited.name = updatedEmployee?.name;
+      if(updatedEmployee?.jobTitle) employeeEdited.jobTitle = updatedEmployee?.jobTitle;
+      if(updatedEmployee?.lastName) employeeEdited.lastName = updatedEmployee?.lastName;
       employee[index] = employeeEdited;
       this.saveEmployeesToCookies(employee);
     }
@@ -61,6 +61,6 @@ export class EmployeesService {
   }
 
   private isValidIndex(index: number): boolean {
-    return index >= this.employees.length;
+    return index <= this.employees.length;
   }
 }

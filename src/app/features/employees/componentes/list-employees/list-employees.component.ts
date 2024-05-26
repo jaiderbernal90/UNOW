@@ -39,7 +39,7 @@ import { MessagesModule } from 'primeng/messages';
     IconFieldModule,
     InputIconModule,
     InputTextModule,
-    MessagesModule,
+    MessagesModule
   ],
   templateUrl: './list-employees.component.html',
   styleUrl: './list-employees.component.scss',
