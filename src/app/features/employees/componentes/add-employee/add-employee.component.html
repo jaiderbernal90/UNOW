@@ -1,1 +1,40 @@
-<p>add-employee works!</p>
+<app-card [classList]="['card-white']">
+  <ng-container title>
+    <div class="">
+      <h2 class="title--card">Add Employee</h2>
+      <p class="text--card">Enter the new employee's information</p>
+    </div>
+  </ng-container>
+  <ng-container body>
+    <form class="grid__form" [formGroup]="form" (submit)="handleOnSubmit()">
+      <div class="form__group mt-16">
+        <label for="name">Name</label>
+        <input pInputText id="name" formControlName="name" placeholder="Enter name" maxlength="100" />
+      </div>
+      <div class="form__group">
+        <label for="lastName">Last name</label>
+        <input pInputText id="lastName" formControlName="lastName" placeholder="Enter last name" maxlength="100" />
+      </div>
+      <div class="form__group">
+        <label for="jobTitle">Job title</label>
+        <p-dropdown [options]="positions()" placeholder="Select a job title" class="w-100" formControlName="jobTitle">
+          <ng-template pTemplate="selectedItem">
+            <div>{{ form.get('jobTitle')?.value | titlecase }}</div>
+          </ng-template>
+          <ng-template let-item pTemplate="item">
+            <div>{{ item | titlecase }}</div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+      <div class="form__group">
+        <label for="dateOfBirth">Date of birth</label>
+        <p-calendar formControlName="dateOfBirth" inputId="dateOfBirth" styleClass="w-100" dateFormat="dd/mm/yy" placeholder="Enter date of birth"></p-calendar>
+
+      </div>
+      <div class="form__group-actions">
+        <p-button label="Submit" class="btn-primary" type="submit" [disabled]="form.invalid" [loading]="loading"
+        />
+      </div>
+    </form>
+  </ng-container>
+</app-card>
