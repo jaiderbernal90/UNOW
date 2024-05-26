@@ -1,0 +1,25 @@
+.form__group{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  label{
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}
+
+.grid__form{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(46px, 1fr));
+  gap: 16px;
+}
+
+.form__group-actions{
+  display: flex;
+  justify-content: end;
+}
+
+.p-datatable {
+  position: unset;
+}

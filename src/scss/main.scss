@@ -1,8 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+
 @import 'utils/variables';
+@import 'utils/functions';
 @import 'base/typography';
 @import 'base/reset';
 @import 'layouts/main';
 @import 'layouts/grid';
-@import 'components/employee';
+@import 'layouts/form';
+@import 'components/buttons';
+@import 'components/inputs';
+@import 'components/card';
+@import 'components/dialog';
+@import 'components/header';
+@import 'components/table';
 

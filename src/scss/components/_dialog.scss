@@ -1,0 +1,18 @@
+.p-inputtext {
+  padding: 0.4rem 0.4rem 0.4rem 0;
+}
+.p-text-secondary{
+  font-size: 1.2rem;
+  display: block;
+}
+.dialog__actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.p-dialog .p-dialog-content {
+  background: #ffffff;
+  color: #4b5563;
+  padding: 0 2rem 4rem 2rem;
+}

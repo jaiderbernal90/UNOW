@@ -1,0 +1,17 @@
+.btn-primary button{
+  background: $bg-secondary;
+  border: 1px solid $bg-secondary;
+  padding: 1rem;
+  color: $bg-white;
+  span{
+    color: $bg-white;
+    font-size: 1.4rem;
+  }
+}
+
+.btn-secondary button{
+  padding: 1rem;
+  span{
+    font-size: 1.4rem;
+  }
+}
